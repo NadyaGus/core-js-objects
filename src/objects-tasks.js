@@ -41,10 +41,10 @@ function mergeObjects(objects) {
   for (let i = 0; i < objects.length; i += 1) {
     const arrFromObject = Object.entries(objects[i]);
     arrFromObject.forEach((arr) => {
-      if (!result[`${arr[0]}`]) {
-        result[`${arr[0]}`] = 0;
+      if (!result[arr[0]]) {
+        result[arr[0]] = 0;
       }
-      result[`${arr[0]}`] += arr[1];
+      result[arr[0]] += arr[1];
     });
   }
 
@@ -70,7 +70,7 @@ function removeProperties(obj, keys) {
 
   allKeys.forEach((elem) => {
     if (keys.includes(elem)) {
-      delete result[`${elem}`];
+      delete result[elem];
     }
   });
 
@@ -253,7 +253,7 @@ function fromJSON(proto, json) {
   const result = Object.create(proto);
 
   for (let i = 0; i < keys.length; i += 1) {
-    result[`${keys[i]}`] = values[i];
+    result[keys[i]] = values[i];
   }
 
   return result;
